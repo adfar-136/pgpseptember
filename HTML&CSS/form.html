@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form autocomplete="off">
+        <label for="username">Enter Username: </label>
+        <input type="text" minlength="7" required  id="username" name="username" 
+        placeholder="Enter Username"/><br><br>
+        <label for="pass">Enter Password: </label>
+        <input type="password" id="pass" 
+        name="password" placeholder="Enter PAssword"><br><br>
+        <label for="">Enter Age: </label>
+        <input type="number" min="0" max="100" placeholder="Enter Age"><br><br>
+        <input type="email" placeholder="Email" disabled><br><br>
+        <!-- <input type="file"><br>
+        <input type="color"><br>
+        <input type="range">
+        <input type="reset"> -->
+        <label for="">Select Your Gender: </label> <br>
+        <input type="radio" name="gender" value="M">Male
+        <input type="radio" name="gender" value="F">Female
+        <input type="radio" name="gender" value="O">Other <br><br>
+
+        <label for="">Select your skills: </label>
+        <input type="checkbox" checked>HTML
+        <input type="checkbox">CSS
+        <input type="checkbox">JS
+        <input type="checkbox">REact
+        <input type="checkbox">Node <br><br>
+        <label for="">Enter your feedback: </label>
+        <textarea name="" id="" rows="10" cols="30"></textarea>
+        <select name="" id="">
+           <option value="selct">Select your country</option>
+           <option value="ind" selected>India</option>
+           <option value="ban">BAngladesh</option>
+           <option value="pak">Pakistan</option>
+           <option value="chi">China</option>
+        </select>
+       <input list="skill">
+       <datalist id="skill">
+         <option value="html">
+         <option value="css">
+         <option value="js">
+         <option value="react">
+            <option value="readddd">
+         <option value="node">
+       </datalist>
+
+
+       <br><br> <input type="submit" value="Signup">
+    </form>
+</body>
+</html>
