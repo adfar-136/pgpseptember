@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        .container{
+            padding: 20px;
+        
+            height: 70vh;
+            background-color: cadetblue;
+            display: grid;
+            gap: 20px;
+            grid-template-columns: auto auto auto auto;
+            grid-template-rows: 150px 150px;
+
+        }
+        .container >div {
+            
+            font-size: 30px;
+            text-align: center;
+            color: #fff;
+        }
+        .item1{
+            grid-column-start: 1;
+            grid-column-end: 2;
+            grid-row-start: 1;
+            grid-row-end:4;
+            background-color: lightgreen;
+            
+        }
+        .item2{
+            grid-column: 2/ span 2;
+            grid-row: 1/ 2;
+           
+            background-color: rgb(63, 15, 237);
+        }
+        .item3{
+            background-color: rgb(232, 54, 54);
+        }
+        .item4,.item7{
+            background-color: orange;
+        }
+        .item5,.item6{
+            background-color: rgb(243, 63, 63);
+        }
+    
+        .item8{
+            
+            grid-area: 2/4/4/5;
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+<body>
+    <!--grid-area:grid-row-start/grid-column-start/grid-row-end/grid-column-end -->
+        <div class="container">
+        <div class="item1"></div>
+        <div class="item2"></div>
+        <div class="item3"></div>
+        <div class="item4"></div>
+        <div class="item5"></div>
+        <div class="item6"></div>
+        <div class="item7"></div>
+        <div class="item8"></div>
+    </div>
+</body>
+</html>

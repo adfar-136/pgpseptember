@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            height: 70vh;
+            background-color: chocolate;
+            padding: 20px;
+            display: grid;
+            grid-template-areas: "header header header header sidebar"
+            "content content footer footer sidebar"
+            "content content message message message";
+            
+            
+        }
+        .header{
+           grid-area: header;
+            background-color: burlywood;
+        }
+        .sidebar{
+            grid-area: sidebar;
+            background-color: aqua;
+        }
+        .content{
+            grid-area: content;
+            background-color: blueviolet;
+        }
+        .footer{
+            grid-area: footer;
+            background-color: rgb(21, 215, 105);
+        }
+        .message{
+            background-color: rgb(241, 85, 85);
+            grid-area: message;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">Header</div>
+        <div class="sidebar">Lorem, ipsum Sidebar</div>
+        <div class="content">content</div>
+        <div class="message">Message</div>
+        <div class="footer">Footer</div>
+    </div>
+</body>
+</html>
