@@ -7,7 +7,21 @@
 </head>
 <body>
     <script>
-        console.log("adfar");
+        var a =20;
+        console.log(a);
+        function sum(x){
+            var double = x+x;
+            function thrice(y){
+                let three = y+y+y;
+                return three;
+
+            }
+            var triple = thrice(8)
+            console.log(triple);
+            return double;
+        }
+        var twice = sum(5)
+        console.log(twice);
     </script>
 </body>
 </html>
