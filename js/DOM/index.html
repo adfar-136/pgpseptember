@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="heading" >Adfar Rasheed</h1>
+    <div id="container">
+
+    </div>
+    <button onclick="funn()">Add content to DIV</button>
+    <button onclick="fun()">Click me</button>
+    <script>
+        function funn(){
+           var element =  document.getElementById("container");
+           element.innerText="<h1>ADfasdfsdsdfr Rasheed</h1> <h2>vhgdfgy</h2>"
+        }
+        function fun(){
+             var element =  document.getElementById("heading")
+             element.textContent = "Hello good morning"
+             element.title = "Hello Jamurai"
+        }
+   
+    </script>
+</body>
+</html>

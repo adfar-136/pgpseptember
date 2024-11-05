@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            background-color: red;
+        }
+        div p{
+            background-color: blue;
+        }
+        body div p{
+            background-color: pink;
+        }
+       body .container > p{
+            background-color: aqua;
+        }
+        .container > p:nth-child(2){
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="main">Content</h1>
+    <p>ADfarrrrrrrrrrr</p>
+    <button id="para">gdfy</button>
+    <h2 class="heading">Heading content</h2>
+    <h2 class="heading">Heading content</h2>
+    <h2 class="heading">Heading content</h2>
+    <h2 class="heading">Heading content</h2>
+    <div class="container">
+        <p>Hello1</p>
+        <p>Hello2</p>
+        <p>Hello3</p>
+        <p>Hello4</p>
+        <p>Hello5</p>
+        <p>Hello6</p>
+        <p>Hello7</p>
+        <p>Hello8</p>
+    </div>
+    <script>
+       let ele1 = document.querySelector("p")
+       console.log(ele1);
+       let ele2 = document.querySelectorAll("p")
+
+       console.log(ele2);
+    </script>
+</body>
+</html>
