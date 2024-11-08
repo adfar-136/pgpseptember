@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input id="input" onkeydown="funn(event)" onkeyup="funnn(event)"  type="text" 
+        placeholder="Enter a task">
+        <button onclick="fun(event)">Add Task</button>
+    </form>
+    <ul id="list">
+        
+    </ul>
+    <script>
+        let input = document.getElementById("input")
+        function funnn(){
+            console.log("Adfar");
+        }
+      /*  function funn(){
+            console.log(event.target.value)
+        }
+        function fun(event){
+            if(input.value){
+                console.log(event.target);
+            console.log(event.type);
+            event.preventDefault()
+             let list = document.getElementById("list")
+             let li = document.createElement("li")
+             li.innerHTML = input.value;
+             list.appendChild(li)
+             input.value=""
+            }else {
+                alert('Please enter something')
+            }
+        }*/
+    </script>
+</body>
+</html>

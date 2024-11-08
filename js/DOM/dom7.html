@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .heading{
+            background-color: cadetblue;
+        }
+    </style>
+</head>
+<body>
+    <div id="main" title="THis is main div">
+
+    </div>
+    <button onclick="fun()">Add tag</button>
+    <script>
+        function fun(){
+            let h1 = document.createElement("h1")
+        h1.innerHTML = "Adfar Rasheed";
+        h1.setAttribute("class","heading")
+        let div = document.getElementById("main");
+        div.removeAttribute("title")
+        div.setAttribute("class","para")
+        div.appendChild(h1)
+        }
+    </script>
+</body>
+</html>

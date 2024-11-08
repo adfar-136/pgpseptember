@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .main{
+            background-color: red;
+        }
+        .para{
+            border: 9px solid blue;
+        }
+        .heading{
+            border-radius: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="container" class="main para heading some">Random text</h1>
+    <button onclick="fun()">Remove background Color</button>
+    <button onclick="funn()">Add background color</button>
+    <button onclick="funnn()">Toggle background color</button>
+    <script>
+        let element = document.getElementById("container")
+        function fun(){
+            element.classList.remove("main")
+        }
+        function funn(){
+            element.classList.add("main")
+        }
+        function funnn(){
+        element.classList.toggle("main")
+        }
+    </script>
+</body>
+</html>

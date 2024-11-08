@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input id="input" type="text" 
+        placeholder="enter username" onfocus="fun()" onblur="funn()">
+
+    </form>
+    <script>
+        let input = document.getElementById("input")
+        function fun(){
+            input.style.backgroundColor = "yellow"
+        }
+        function funn(){
+            input.style.backgroundColor = ""
+
+        }
+    </script>
+</body>
+</html>
