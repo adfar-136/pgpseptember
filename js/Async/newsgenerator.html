@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">Generate News Articles</button>
+    <div id="main"></div>
+    <script>
+        document.getElementById("btn").addEventListener("click",async ()=>{
+           var data = await  fetch("https://newsapi.org/v2/everything?q=bollywood&from=2024-10-13&sortBy=publishedAt&apiKey=28a2c6b3aa1945c2afd8012e42fdac9e")
+           var jsondata =await data.json()
+           jsondata.articles.map((item)=>{
+            document.getElementById("main").innerHTML =document.getElementById("main").innerHTML + `
+             <h1>${item.title==="[Removed]"?"No title available":item.title.slice(0,50)}</h1>
+             <img src="${item.urlToImage===null?"https://img.etimg.com/thumb/msid-115224774,width-1200,height-630,imgsize-19030,overlay-economictimes/articleshow.jpg":item.urlToImage}" width="100px" height = "100px" alt="news image"/>
+            `
+       })
+        })
+       /* document.getElementById("btn").addEventListener("click",()=>{
+            fetch("https://newsapi.org/v2/everything?q=bollywood&from=2024-10-13&sortBy=publishedAt&apiKey=28a2c6b3aa1945c2afd8012e42fdac9e")
+            .then(response => response.json())
+            .then((result)=>{
+                console.log(result);
+                result.articles.map((item)=>{
+                     document.getElementById("main").innerHTML =document.getElementById("main").innerHTML + `
+                      <h1>${item.title}</h1>
+                      <img src="${item.urlToImage}" alt="news image"/>
+                     `
+                })
+            })
+        })*/
+    </script>
+</body>
+</html>
