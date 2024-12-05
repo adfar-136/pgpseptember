@@ -1,0 +1,47 @@
+//themer change worst case
+import React, { useState } from 'react'
+import Counter from './components/state/Counter'
+import When from './components/state/When'
+
+export default function App() {
+  const [bgColor,setBgColor]= useState("white")
+  const [color,setColor] = useState("black")
+  const [text,setText] = useState("Dark")
+  function handleTheme(){
+    if(bgColor === "white"){
+      setBgColor("black");
+      setColor("white");
+      setText("Light")
+    } else {
+      setBgColor("white")
+      setColor("black")
+      setText("Dark")
+    }
+  }
+  return (
+    <div style={{backgroundColor:bgColor,color:color,padding:"40px"}}>
+      <h1>Hello Students</h1>
+      <button onClick={handleTheme}>{text} Mode</button>
+      <Counter/>
+      <When/>
+    </div>
+  )
+}
+
+import React from 'react'
+import { useState } from 'react'
+
+export default function App() {
+  const [condition,setCondition] = useState(false)
+  function handleClick(){
+    setCondition(!condition)
+  }
+  return (
+    <div style={{backgroundColor:condition?"black":"white",color:condition?"white":"black"}}>
+      <button onClick={handleClick}>{condition?"Light":"Dark"} Mode</button>
+      <h1>This is my react app</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias corrupti dolore voluptatibus possimus, maiores, aliquid unde eos nesciunt blanditiis sint enim, est consectetur asperiores ipsum ducimus deserunt. Error dicta voluptas dolorem, libero nostrum laudantium iure officiis eos tempora repellat quisquam dolore. Quo, incidunt reiciendis. Reiciendis ducimus adipisci architecto earum autem praesentium impedit assumenda vero veniam hic odio quam dolor cumque distinctio commodi maiores minus esse repudiandae quisquam saepe reprehenderit, asperiores laboriosam! Impedit possimus laboriosam ea veritatis perferendis qui accusantium iusto unde, quasi sequi suscipit, magnam similique, veniam quidem ducimus praesentium libero eveniet eum pariatur commodi delectus? Cum culpa iste repudiandae ducimus odio id, sequi, labore qui eos expedita molestiae nemo, repellat rerum exercitationem impedit. Atque ullam sed, odit quas consectetur id ipsum necessitatibus quis doloribus itaque illo neque nesciunt. Quos molestias assumenda dicta nisi debitis dolorem dolores soluta recusandae quam in dignissimos cupiditate, nihil deleniti reiciendis suscipit laudantium. Voluptatem, repellat porro. Dicta consequuntur praesentium cumque dolore vitae voluptates explicabo repudiandae, minima maiores voluptatum unde, sit cupiditate quos exercitationem quisquam odit, suscipit asperiores provident cum commodi! Quos expedita ducimus cum, praesentium blanditiis, debitis deleniti architecto laboriosam laborum aliquam totam ipsum sit, distinctio nemo adipisci consequuntur accusantium! Vero repellendus dolores esse? In!</p>
+    </div>
+  )
+}
+
