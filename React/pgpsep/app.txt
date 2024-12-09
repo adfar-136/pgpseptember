@@ -45,3 +45,203 @@ export default function App() {
   )
 }
 
+import React from 'react'
+import { useState } from 'react'
+
+export default function App() {
+  const [count,setCount] = useState(0)
+  function handleIncrement(){
+    setCount((prev)=>prev+1)
+    setCount((prev)=>prev+2)
+    setCount((prev)=>prev+3)
+    setCount(count+1)
+  }
+  return (
+    <div>
+      <h1>Count : {count}</h1>
+      <button onClick={handleIncrement}>Increment ++++</button>
+    </div>
+  )
+}
+
+import React, { useState } from 'react'
+
+export default function ControlledForms() {
+    const [name,setName] = useState("")
+    const [email,setEmail] = useState("")
+    const [password,setPassword] = useState("")
+    const [condition,setCondition] =useState(false)
+    function handleSubmit(e){
+        e.preventDefault()
+       setCondition(true)
+    }
+  return (
+    <div>
+        <form onSubmit={handleSubmit}>
+            <input type="text"  placeholder='ENter Name'
+            value={name} onChange={(e)=>setName(e.target.value)}/> <br /><br />
+            <input type="email" placeholder='Enter Email'
+            value={email} onChange={(e)=>setEmail(e.target.value)}/> <br /><br />
+            <input type="password" placeholder='Enter Password'
+            value={password} onChange={(e)=>setPassword(e.target.value)}/> <br /><br />
+            <input type="submit" value="SUbmit" />
+            {condition ? <h1>My Name is {name} and my email is {email} and my password is {password}</h1>:"Please submit the form"}
+        </form>
+    </div>
+  )
+}
+\
+
+
+
+import React from 'react'
+import { useEffect } from 'react'
+import { useState } from 'react'
+
+export default function App() {
+  const [count,setCount] = useState(0)
+  const [number,setNumber] = useState(100)
+  useEffect(()=>{
+    console.log("USeeffect")
+  },[count,number])
+  return (
+    <div>
+      <h1>count: {count}</h1>
+      <button onClick={()=>setCount(count+2)}>++++++</button>
+      <h1>Number: {number}</h1>
+      <button onClick={()=>setNumber(number-2)}>++++++</button>
+    </div>
+  )
+}
+
+
+//useEffect(()=>//logic) =>mounting + updation
+//useEffect(()=>//logic,[]) => mounting
+//useEffect(()=>//logic,[x,y,z]) = > mounting + updation =>x,y,z
+
+
+import React from 'react'
+import { useEffect } from 'react';
+import { useState } from 'react';
+
+export default function App() {
+  const [jokee,setJokee] = useState("")
+ async function handleJoke(){
+    let data  = await fetch("https://official-joke-api.appspot.com/random_joke");
+    let joke = await data.json()
+    setJokee(joke)
+  }
+  useEffect(()=>{
+    handleJoke()
+  },[])
+  return (
+    <div>
+      <h1>{jokee.setup}</h1>
+      <h1>{jokee.punchline}</h1>
+      <button onClick={handleJoke}>GenerateJoke</button>
+    </div>
+  )
+}
+
+
+import React from 'react'
+import { useEffect } from 'react'
+import { useState } from 'react'
+
+export default function App() {
+  const [count,setCount] = useState(0)
+  useEffect(()=>{
+    let fun = ()=>console.log("Adfar")
+    document.addEventListener("click",fun)
+    return ()=>{
+      document.removeEventListener("click",fun)
+    }
+  })
+  return (
+    <div>
+      <h1>count :{count}</h1>
+      <button onClick={()=>setCount(count+1)}>++++</button>
+    </div>
+  )
+}
+
+
+import React from 'react'
+import { useEffect } from 'react'
+import { useState } from 'react'
+
+export default function App() {
+  const [count,setCount] = useState(0)
+  useEffect(()=>{
+    let fun = ()=>console.log("Adfar")
+   var id =  setInterval(fun,3000);
+   return ()=>{
+    clearInterval(id)
+   }
+  })
+  return (
+    <div>
+      <h1>count :{count}</h1>
+      <button onClick={()=>setCount(count+1)}>++++</button>
+    </div>
+  )
+}
+
+import React, { useReducer } from 'react'
+function reducer(state,action){
+  console.log(">>>>",action)
+   if(action.type === "increment") return {count:state.count+action.payload};
+   else if(action.type === "decrement") return {count:state.count-action.payload};
+   if(action.type === "incrementt") return {count:state.count+action.payload};
+   else return state
+}
+export default function App() {
+  const [state,dispatch] = useReducer(reducer,{count:0,color:"blue",condition:true})
+  return (
+    <div>
+      <h1>{state.count}</h1>
+      <button onClick={()=>dispatch({type:"increment",payload:1})}>+1</button>
+      <button onClick={()=>dispatch({type:"decrement",payload:-1})}>-1</button>
+      <button onClick={()=>dispatch({type:"incrementt",payload:100})}>+100</button>
+      <button>-100</button>
+      <button>1000+</button>
+      <button>-1000+</button>
+      <button>675</button>
+    </div>
+  )
+}
+
+
+//useReducer = > complex state
+
+//1. UI (view) => actions => dispatch => data(action) => reducer => state=>view=>UI ;
+
+// button => onClick =>dispatch(100)=>reducer=>state=>data=>UI 
+
+import React from 'react'
+import { useReducer } from 'react'
+function reducer(state,action){
+    switch(action.type){
+      case "red":
+        return {color:action.payload}
+      case "blue":
+        return {color:action.payload}
+      case "green":
+        return {color:action.payload}
+      case "yellow":
+        return {color:action.payload}
+      default:
+        return state
+    }
+}
+export default function App() {
+  const [state,dispatch] = useReducer(reducer,{color:"white"})
+  return (
+    <div style={{backgroundColor:state.color}}>
+      <button onClick={()=>dispatch({type:"red",payload:"red"})}>Red</button>
+      <button onClick={()=>dispatch({type:"blue",payload:"blue"})}>Blue</button>
+      <button onClick={()=>dispatch({type:"green",payload:"green"})}>Green</button>
+      <button onClick={()=>dispatch({type:"yellow",payload:"yellow"})}>Yellow</button>
+    </div>
+  )
+}
