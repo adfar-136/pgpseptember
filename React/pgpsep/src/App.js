@@ -1,48 +1,37 @@
-import React, { Component } from 'react'
-import About from './components/classes/About'
+import React, { useState } from 'react'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
+import Home from './Routinf/Home'
+import About from './Routinf/About'
+import Contact from './Routinf/Contact'
+import Blog from './Routinf/Blog'
+import Shop from './Routinf/Shop'
+import Navbar from './Routinf/Navbar'
+import User from './Routinf/User'
+import Userdetails from './Routinf/Userdetails'
+import Adhaar from './Routinf/Adhaar'
 
-export default class App extends Component {
-  constructor(){
-    super()
-    this.state = {
-      count:0,
-      color:"red"
-    }
-  }
-  // useEffect(()=>{
-  //   //logic
-  // },[])
-  // componentDidMount(){
-  //   //logic
-  //   console.log("Component did mount")
-  // }
-
-  // // useEffect(() => {
-  // //   //logic 
-  // // })
-  
-  componentDidUpdate(){
-    console.log("Component did update")
-  }
-  shouldComponentUpdate(nextProps,nextState){
-    console.log(nextState)
-    if(nextState.count > 10){
-      return false
-    }
-    return true
-  }
-  handleClick=()=>{
-    this.setState({count:this.state.count+1})
-  }
-  render() {
-    console.log("render")
-    return (
-      <div>
-        <About name="ADfar" age="27"/>
-        <h1 style={{color:this.state.color}}>{this.state.count}</h1>
-        <button onClick={()=>this.handleClick()}>Increment</button>
-        <button onClick={()=>this.setState({color:"blue"})}>Blue</button>
-      </div>
-    )
-  }
+export default function App() {
+  var a =false;
+  const [count,setCount] = useState(0)
+  return (
+    <div>
+      <h1>{count}</h1>
+      <button onClick={()=>setCount(count+1)}>Increment</button>
+      <BrowserRouter>
+      <Navbar/>
+         <Routes>
+           <Route path='/' element={<Home/>}/>
+           <Route path='/about' element={<About/>}/>
+           <Route path='/contact' element={<Contact/>}/>
+           <Route path='/blog' element={<Blog/>}/>
+           <Route path='/shop' element={<Shop/>}/>
+           <Route path='/users' element={<User/>}/>
+           <Route path='/users/:id' element={<Userdetails/>}/>
+           <Route path='/users/:id/contact/:adhaar' element={<Adhaar/>}/>
+           <Route path='/profile' element={<Navigate to={a?"/about":"/contact"}/>}/>
+          
+         </Routes>
+      </BrowserRouter>
+    </div>
+  )
 }
