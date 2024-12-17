@@ -1,0 +1,5 @@
+1. Create Context =>createContext 
+2. Provider data .
+3. export context 
+4.  inport context
+5 consume the context
