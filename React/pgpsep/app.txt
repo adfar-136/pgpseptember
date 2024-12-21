@@ -380,3 +380,74 @@ export default function App() {
     </div>
   )
 }
+
+
+import React from 'react'
+import { useRef } from 'react'
+
+export default function App() {
+  const nameRef = useRef()
+  const emailRef = useRef()
+  const hRef = useRef()
+  function handleClick(e){
+    e.preventDefault()
+    console.log(nameRef.current.value)
+    console.log(emailRef.current.value)
+  }
+  function handleH(){
+    console.log(hRef.current)
+    hRef.current.innerHTML = "Good Morning";
+    hRef.current.style.backgroundColor = "red"
+  }
+  return (
+    <div>
+      <h1 ref={hRef}>Adfar Rasheed</h1>
+      <button onClick={handleH}>done</button>
+
+      <form>
+        <input type="text" placeholder='Enter Name' ref={nameRef}/>
+        <input type="text" placeholder='etrd' ref={emailRef}/>
+        
+        <button onClick={handleClick}>CLick</button>
+      </form>
+    </div>
+  )
+}
+
+
+import React from 'react'
+import CounterRedux from './ReduxStore/CounterRedux'
+import Todoredux from './ReduxStore/TodoRedux'
+import { setBackgroundColor } from './ReduxStore/action'
+import { useDispatch, useSelector } from 'react-redux'
+import MainCounter from './ReduxStore/MainCounter'
+export default function App() {
+  const {backgroundColor} = useSelector((state) => state.color)
+  const dispatch = useDispatch()
+  return (
+    <div style={{backgroundColor:backgroundColor}}>
+      <button onClick={()=>dispatch(setBackgroundColor("yellow"))}>Red</button>
+      <button onClick={()=>dispatch(setBackgroundColor("blue"))}>Blue</button>
+      <button onClick={()=>dispatch(setBackgroundColor("green"))}>Green</button>
+      <CounterRedux/>
+      <MainCounter/>
+      <Todoredux/>
+    </div>
+  )
+}
+
+
+import React from 'react'
+import { incrementStore,decrementStore } from './thunkstore/action'
+import { useDispatch, useSelector } from 'react-redux'
+export default function App() {
+  const count =useSelector((state)=>state)
+  const dispatch =useDispatch()
+  return (
+    <div>
+      <h1>count:{count}</h1>
+      <button onClick={()=>dispatch(incrementStore(50))}>++++</button>
+      <button onClick={()=>dispatch(decrementStore(50))}>----</button>
+    </div>
+  )
+}
