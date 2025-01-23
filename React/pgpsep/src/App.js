@@ -1,16 +1,10 @@
-import React, { useState } from 'react'
-import Children from './Children'
+import React from 'react'
 
 export default function App() {
-  const [number,setNumber] = useState(10000);
-  console.log("parent Component")
   return (
     <div>
-      <h1>Number:{number}</h1>
-      <button onClick={()=>setNumber(number-1)}>Decrement Button</button>
-      <Children />
+      <h1> this is my reaCT AAPPPP</h1>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, porro iste repudiandae, necessitatibus accusantium architecto impedit perspiciatis obcaecati consequuntur, unde tempore perferendis nesciunt expedita dolor delectus sint nobis asperiores? Nobis.
     </div>
   )
 }
-
-

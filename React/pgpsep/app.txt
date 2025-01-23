@@ -451,3 +451,18 @@ export default function App() {
     </div>
   )
 }
+
+
+import React, { Suspense } from 'react'
+import { lazy } from 'react'
+const Component1 = lazy(()=>import("./Component1.js"))
+export default function App() {
+  return (
+    <div>
+      <Suspense fallback={<h1>Thoda sbr rakho ...</h1>}>
+        <Component1/>
+      </Suspense>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam unde cum incidunt nesciunt non enim autem modi iusto consequatur! Vitae ad laudantium eos repellat sapiente nostrum quas quo amet earum omnis sunt cupiditate nam quasi dignissimos praesentium laborum dolore, voluptates beatae architecto reprehenderit ipsam rerum vero! Officia, tenetur unde pariatur consequatur nobis voluptates expedita cupiditate adipisci, vitae accusantium dolor, ad beatae! Laboriosam deserunt expedita molestiae distinctio rerum vitae molestias nesciunt ratione optio. Ex vitae officiis repellat maiores, dolorem excepturi odit ratione esse magnam quaerat quo fuga asperiores nostrum reiciendis ipsa! Inventore architecto quidem dolore vero adipisci temporibus deleniti quam suscipit?</p>
+    </div>
+  )
+}
