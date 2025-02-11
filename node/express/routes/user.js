@@ -1,6 +1,9 @@
 const express = require("express");
 const userRouter = express.Router();
-
+userRouter.use((req,res,next)=>{
+    console.log("authenticated");
+    next()
+})
 userRouter.get("/",(req,res)=>{
     res.send("User Homepage");
 })

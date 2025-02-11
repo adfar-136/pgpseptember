@@ -1,0 +1,13 @@
+//data => usser, customer, products;
+
+creating storage => local server as mongodb db => mern => local server mongodb =>
+
+vloud db of mongodb
+
+=>NoSql Database; MongoDb => Document oriented=>objectOriented=>json like structure;
+=>unstructured => schema does not matter=>{name,age}=>{name,gender},{ctfdgyj};
+=>tables = > collection;
+=>tuples => documents
+=>select * from Customer where age >20;
+
+=>
