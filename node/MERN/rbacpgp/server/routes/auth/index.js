@@ -2,6 +2,7 @@ import express  from 'express';
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken"
 import { Role, User, UserRole } from '../../models/index.js';
+import fetchRolesAndPermissions from '../../helpers/fetchRolesAndPermissions.js';
 const router = express.Router()
 
 router.post("/register",async (req,res)=>{
@@ -31,7 +32,11 @@ router.post("/login",async(req,res)=>{
     if(!isMatch){
         return res.status(401).json({message:"Invalid Password"});
     }
+    req.user = {
+        _id : user._id
+    }
   const token = jwt.sign({userId:user._id,userName:user.username},process.env.JWT_SECRET,{expiresIn:"3h"})
-  res.status(200).json({message:"Logged in Successfully",token})
+  const data = await fetchRolesAndPermissions(req)
+  res.status(200).json({message:"Logged in Successfully",token,data})
 })
 export default router
